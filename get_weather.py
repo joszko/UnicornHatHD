@@ -13,9 +13,8 @@ def weather_api_call(api_key, location_id):
     owm = pyowm.OWM(api_key)
     observation = owm.weather_at_id(location_id)
     w = observation.get_weather()
-    return w.get_temperature(unit='celsius')['temp']
+    return [str(int(w.get_temperature(unit='celsius')['temp'])), w.get_detailed_status()]
 
-    # print(w.get_status())
 
 def draw_temperature(temp):
 
