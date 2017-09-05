@@ -48,7 +48,9 @@ try:
         if int(time.strftime('%S')) % 30 == 0:
 
             img = Image.open(icons[status])
+
             unicorn.rotation(0)
+
             for o_x in range(int(img.size[0] / width)):
                 for o_y in range(int(img.size[1] / height)):
 
@@ -62,7 +64,7 @@ try:
                             unicorn.set_pixel(x, y, r, g, b)
                     if valid:
                         unicorn.show()
-                        time.sleep(0.2)
+                        time.sleep(0.15)
 
             for x in range(0, 16):
                 for y in range(0, 16):

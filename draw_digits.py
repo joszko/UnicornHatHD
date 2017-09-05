@@ -1,4 +1,6 @@
 import time
+import colorsys
+from random import randint
 try:
     import unicornhathd as unicorn
     print("16x16 unicorn detected")
@@ -156,8 +158,16 @@ def draw_digit(digit, x, y, r, g, b):
 
         unicorn.set_pixel(x, y + 3, 0, 0, 0)
 
-def draw_seconds():
+def gradient(x, y, step):
+    g = x * 16
+    b = y * 16
+    r = 255 - (x * 16)
 
+    return (r, g, b)
+
+
+def draw_seconds():
+    step = 0
     # seconds - one dot = 5 seconds
     sec = int(round(int(time.strftime('%S'))/5, 0))
 
@@ -171,6 +181,14 @@ def draw_seconds():
     else:
         unicorn.set_pixel(13, 13, 0, 255, 0)
         unicorn.set_pixel(13, 2, 0, 255, 0)
+
         for dot in range(1, sec):
-            unicorn.set_pixel(13 - dot, 13, 0, 255, 0)
-            unicorn.set_pixel(13 - dot, 2, 0, 255, 0)
+
+            r = gradient(13 - dot, 13,step)[0]
+            b = gradient(13 - dot, 13,step)[2]
+            g = gradient(13 - dot, 13,step)[1]
+
+            unicorn.set_pixel(13 - dot, 13, r, g, b)
+            unicorn.set_pixel(13 - dot, 2, r, g, b)
+
+        step += 2

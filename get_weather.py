@@ -22,9 +22,43 @@ def draw_temperature(temp):
         for y in range(4, 11):
             unicorn.set_pixel(x, y, 0, 0, 0)
 
-    draw_digits.draw_digit(temp[:1], 12, 5, 255, 0, 0)
-    draw_digits.draw_digit(temp[1:], 8, 5, 255, 0, 0)
+    if int(temp) > 0 and len(temp) == 2:
 
-    for x in range(3, 5):
-        for y in range(5, 7):
-            unicorn.set_pixel(x, y, 255, 0, 0)
+        draw_digits.draw_digit(temp[:1], 12, 5, 255, 0, 0)
+        draw_digits.draw_digit(temp[1:], 8, 5, 255, 0, 0)
+
+        for x in range(3, 5):
+            for y in range(5, 7):
+                unicorn.set_pixel(x, y, 255, 0, 0)
+
+    elif int(temp) > 0 and len(temp) ==1:
+
+        draw_digits.draw_digit(temp,8, 5, 255, 0, 0)
+
+        for x in range(3, 5):
+            for y in range(5, 7):
+                unicorn.set_pixel(x, y, 255, 0, 0)
+
+    elif int(temp) < 0 and len(temp) ==2:
+
+        draw_digits.draw_digit(temp[:1], 12, 5, 255, 0, 0)
+        draw_digits.draw_digit(temp[1:], 8, 5, 255, 0, 0)
+
+        unicorn.set_pixel(14, 7, 255, 0, 0)
+        unicorn.set_pixel(13, 7, 255, 0, 0)
+
+        for x in range(3, 5):
+            for y in range(5, 7):
+                unicorn.set_pixel(x, y, 255, 0, 0)
+
+    elif int(temp) < 0 and len(temp) ==1:
+
+        draw_digits.draw_digit(temp[1:2], 12, 5, 255, 0, 0)
+        draw_digits.draw_digit(temp[2:], 8, 5, 255, 0, 0)
+
+        unicorn.set_pixel(14, 7, 255, 0, 0)
+        unicorn.set_pixel(13, 7, 255, 0, 0)
+
+        for x in range(3, 5):
+            for y in range(5, 7):
+                unicorn.set_pixel(x, y, 255, 0, 0)
