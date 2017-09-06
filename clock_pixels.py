@@ -12,17 +12,17 @@ unicorn.brightness(1)
 
 width, height = unicorn.get_shape()
 
-temp, status = get_weather.weather_api_call('fd46da3e11c314e9ff7de4dffa655c1e', 3099424)
+temp, status = get_weather.weather_api_call('fd46da3e11c314e9ff7de4dffa655c1e', 6255152)
 
-icons = {'clear sky': r'./icons/clear-day.png',
-         'few clouds': r'./icons/partly-cloudy-day.png',
-         'scattered clouds': r'./icons/cloudy.png',
-         'broken clouds': r'./icons/cloudy.png',
-         'shower rain': r'./icons/rain.png',
-         'rain': r'./icons/rain.png',
-         'thunderstorm': r'./icons/lightning-icon.png',
-         'snow': r'./icons/snow.png',
-         'mist': r'./icons/fog.png'}
+icons = {'01d': r'./icons/clear-day.png', '01n': r'./icons/clear-night.png',
+         '02d': r'./icons/partly-cloudy-day.png', '02n': r'./icons/partly-cloudy-night.png',
+         '03d': r'./icons/cloudy.png', '03n': r'./icons/cloudy.png',
+         '04d': r'./icons/cloudy.png', '04n': r'./icons/cloudy.png',
+         '09d': r'./icons/rain.png', '09n': r'./icons/rain.png',
+         '10d': r'./icons/rain.png', '10n': r'./icons/rain.png',
+         '11d': r'./icons/lightning-icon.png', '11n': r'./icons/lightning-icon.png',
+         '13d': r'./icons/snow.png', '13n': r'./icons/snow.png',
+         '50d': r'./icons/fog.png', '50n': r'./icons/fog.png'}
 
 try:
     while True:
@@ -42,7 +42,7 @@ try:
 
         # update weather data
         if time.strftime('%M') == '59':
-            temp, status = get_weather.weather_api_call('fd46da3e11c314e9ff7de4dffa655c1e', 3099424)
+            temp, status = get_weather.weather_api_call('fd46da3e11c314e9ff7de4dffa655c1e', 6255152)
 
         # draw weather data
         if int(time.strftime('%S')) % 30 == 0:
